@@ -67,7 +67,7 @@ function sanitizeComponent(comp: unknown, index: number): ComponentDefinition {
       return {
         key: sanitizeString(cc.key || cc.name, `col_${i}`),
         label: sanitizeString(cc.label || cc.key || cc.name, `Column ${i}`),
-        type: sanitizeString(cc.type, 'text'),
+        type: sanitizeString(cc.type, 'text') as any,
         sortable: sanitizeBoolean(cc.sortable, false),
         filterable: sanitizeBoolean(cc.filterable, false),
       };
