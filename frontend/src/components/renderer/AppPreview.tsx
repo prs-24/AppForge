@@ -115,9 +115,9 @@ function PageRenderer({ page, appId }: { page: Page; appId: string | null }) {
 function ComponentRenderer({ component, appId }: { component: Component; appId: string | null }) {
   switch (component.type) {
     case 'form':
-      return <DynamicForm component={component} appId={appId} />;
+      return <DynamicForm component={component as any} appId={appId} />;
     case 'table':
-      return <DynamicTable component={component} appId={appId} />;
+      return <DynamicTable component={component as any} appId={appId} />;
     case 'dashboard':
       return <DynamicDashboard component={component} appId={appId} />;
     case 'card':
