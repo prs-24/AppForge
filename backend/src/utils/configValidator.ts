@@ -107,10 +107,10 @@ function sanitizeTableDefinition(table: unknown, index: number): TableDefinition
   // Always ensure id + timestamps exist
   const hasId = columns.some(c => c.primaryKey || c.name === 'id');
   if (!hasId) {
-    columns.unshift({ name: 'id', type: 'uuid', primaryKey: true, nullable: false, unique: true, defaultValue: 'uuid_generate_v4()' });
+    columns.unshift({ name: 'id', type: 'uuid' as any, primaryKey: true, nullable: false, unique: true, defaultValue: 'uuid_generate_v4()' });
   }
   if (!columns.find(c => c.name === 'created_at')) {
-    columns.push({ name: 'created_at', type: 'timestamp', nullable: true, unique: false, primaryKey: false, defaultValue: 'NOW()' });
+    columns.push({ name: 'created_at', type: 'timestamp' as any, nullable: true, unique: false, primaryKey: false, defaultValue: 'NOW()' });
   }
 
   return {
